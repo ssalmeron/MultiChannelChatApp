@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pf="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <meta content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+        <!-- Meta -->
+        <meta name="description" content="Simple Mutli Channel Chat"/>
+        <link rel="shortcut icon" href="resources/img/fav.png"/>
+        <link rel="shortcut icon" type="image/x-icon" href="#{request.contextPath}resources/img/favicon.ico"/>
+
+
+        <title>Simple Chat</title>
+
+        <!-- *************
+                ************ Common Css Files *************
+            ************ -->
+        <!-- Bootstrap css -->
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
+
+        <!-- Main css -->
+        <link rel="stylesheet" href="resources/css/main.css"/>
+
+    </h:head>
+    <h:body class="authentication">
+
+    <!-- *************
+        ************ Login container start *************
+    ************* -->
+    <div class="login-container">
+
+        <!-- Row start -->
+        <div class="row no-gutters h-100">
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="login-about">
+                    <div class="slogan">
+                        <span>Design</span>
+                        <span>Made</span>
+                        <span>Simple.</span>
+                    </div>
+                    <div class="about-desc">
+                        Quick Chat is an intelligent and communications tool, built for teams. It provides an integrated platform that makes team communication easy and efficient
+                    </div>
+                    <a href="index.html" class="know-more">Know More   <h:graphicImage value="img/right-arrow.svg" alt="Arrow pointing to right"/> </a>
+
+                </div>
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="login-wrapper">
+                    <h:form id="loginForm" action="login.html">
+                        <div class="login-screen">
+                            <div class="login-body">
+                                <a href="index.html" class="login-logo">
+                                    <h:graphicImage value="img/logo.svg" alt="Quick Chat"/>
+
+                                </a>
+                                <h6>Welcome back,<br/>Please login to your account.</h6>
+                                <div class="field-wrapper">
+                                    <pf:inputText id="float-input" value="#{loginBean.username}" />
+                                    <pf:focus for="float-input"/>
+                                    <div class="field-placeholder">User Name</div>
+                                </div>
+                                <div class="field-wrapper mb-3">
+                                    <pf:password id="toggle" toggleMask="true" redisplay="true" value="#{loginBean.password}"/>
+                                    <div class="field-placeholder">Password</div>
+                                </div>
+                                <div class="actions">
+                                    <h:commandButton id="loginButton" class="btn btn-primary" value="Login" action="#{loginBean.doLogin()}"/>
+                                </div>
+                            </div>
+                            <div class="login-footer">
+
+                            </div>
+                        </div>
+                    </h:form>
+                </div>
+            </div>
+        </div>
+        <!-- Row end -->
+
+    </div>
+    <!-- *************
+        ************ Login container end *************
+    ************* -->
+
+    </h:body>
+
+
+
+</f:view>
+</html>

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:pf="http://primefaces.org/ui"
+      xmlns:jsf="http://xmlns.jcp.org/jsf">
+<f:view>
+    <h:head>
+        <meta content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+
+
+        <!-- Meta -->
+        <meta name="description" content="Simple Mutli Channel Chat"/>
+
+        <link rel="shortcut icon" href="resources/img/fav.png"/>
+
+        <!-- Title -->
+        <title>Simple Chat</title>
+
+        <!-- Bootstrap css -->
+        <link rel="stylesheet" href="resources/css/bootstrap.min.css"/>
+
+        <!-- Main css -->
+        <link rel="stylesheet" href="resources/css/main.css"/>
+
+
+    </h:head>
+
+
+    <h:body >
+
+        <!-- Loading wrapper start -->
+        <div id="loading-wrapper">
+            <div class="spinner-border"></div>
+        </div>
+        <!-- Loading wrapper end -->
+
+        <!-- Page wrapper start -->
+        <div class="page-wrapper">
+
+            <!-- Sidebar wrapper start -->
+            <nav jsf:id="Sidebar" class="sidebar-wrapper">
+
+                <!-- Sidebar content start -->
+                <div class="sidebar-tabs">
+
+
+                    <!-- Tabs Nav Start -->
+                    <h:panelGroup class="nav" p:role="tablist" p:aria-orientation="vertical">
+                        <a href="#" class="logo">
+                            <h:graphicImage value="/resources/img/logo.svg" alt="Quick Chat"/>
+                        </a>
+                        <h:link class="nav-link active" id="chats-tab2" p:data-toggle="pill" href="#tab-chats" p:role="tab"
+                                p:aria-controls="tab-chats" p:aria-selected="true">
+                            <h:graphicImage value="resources/img/home.svg" alt="Chats"/>
+                            <span class="nav-link-text">Chats</span>
+
+
+                        </h:link>
+
+
+                        <a href="login.html" class="nav-link mt-auto">
+                            <h:graphicImage value="/resources/img/logout.svg" alt="Logout"/>
+
+
+                        </a>
+                    </h:panelGroup>
+                    <!-- Tabs Nav End -->
+
+                    <!-- Tabs Content Start -->
+                    <div class="tab-content">
+
+                        <!-- Chat Tab -->
+
+                        <h:panelGroup class="tab-pane fade show active" id="tab-chats" p:role="tabpanel"
+                             p:aria-labelledby="chats-tab">
+
+                            <!-- Tab content header start -->
+                            <div class="tab-pane-header">
+                                Chats
+                            </div>
+                            <!-- Tab content header end -->
+
+
+                            <!-- Chat users container start -->
+                            <div class="chat-users-container">
+
+                                <!-- Search Container Start -->
+                                <div class="search-container">
+                                    <div class="input-group">
+                                        <pf:inputText id="searchText" class="form-control" p:placeholder="Search Chat"/>
+                                    </div>
+                                </div>
+                                <!-- Search Container End -->
+
+                                <!-- Recent Chat List Start -->
+                                <div class="recent-chat-list">
+                                    <h5>Recent</h5>
+                                    <ul class="chat-cards">
+                                        <li>
+
+                                            <h:outputLink value="#">
+
+                                                <div class="user-avatar">
+                                                    <span class="status offline"/>
+                                                    <div class="bg-avatar red">LM</div>
+                                                </div>
+                                                <h5>Lewis Morrison</h5>
+                                                <!-- <h6>21 mins ago</h6> -->
+                                                <div class="video-chat-icons">
+                                                    <div class="video-chat">
+                                                        <h:graphicImage value="/resources/img/icon-video-call.svg" alt="Video Call"/>
+
+                                                    </div>
+                                                    <button type="button" class="recent-delete">
+                                                        <h:graphicImage value="/resources/img/icon-trash.svg" alt="Delete"/>
+
+                                                    </button>
+                                                </div>
+
+                                            </h:outputLink>
+                                        </li>
+
+
+                                    </ul>
+                                </div>
+                                <!-- Recent Chat List End -->
+
+                                <!-- Users Container Start -->
+                                <div class="users-container">
+
+                                    <!-- Users container scroll start -->
+                                    <div class="usersContainerScroll">
+                                        <ul class="users-list">
+                                            <li>
+                                                <h:outputLink value="#">
+
+                                                    <div class="chat-avatar">
+                                                        <span class="status online"></span>
+                                                        <div class="bg-avatar blue">JO</div>
+                                                    </div>
+                                                    <div class="users-list-body">
+                                                        <div class="chat-msg">
+                                                            <h6 class="text-truncate">Jane Orchard</h6>
+                                                            <p class="text-truncate">Hey! there I'm available.</p>
+                                                        </div>
+                                                        <div class="chat-time">
+                                                            <span class="count">7</span>
+                                                            <span class="time">5 Mins</span>
+                                                        </div>
+                                                    </div>
+
+                                                </h:outputLink>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <!-- Users container scroll end -->
+
+                                </div>
+                                <!-- Users Container End -->
+
+                            </div>
+                            <!-- Chat users container end -->
+
+                        </h:panelGroup>
+
+
+
+                    </div>
+                    <!-- Tabs Content End -->
+
+                </div>
+                <!-- Sidebar content end -->
+
+            </nav>
+            <!-- Sidebar wrapper end -->
+
+            <!-- *************
+                ************ Main container start *************
+            ************* -->
+            <div class="main-container">
+
+                <!-- Empty chat screen start -->
+                <div class="empty-chat-screen">
+
+                    <!-- Option to display logged in user avatar -->
+                    <!--
+                        <img src="img/user2.png" class="my-avatar" alt="My Avatar">
+                        <h5>Hey, <span>Katherine</span></h5>
+                        <h6>Welcome to Quick Chat App</h6>
+                        <p>Please select a chat to start messaging.</p>
+                    -->
+
+                    <!-- Display Image -->
+                    <h:graphicImage value="/resources/img/empty-chat-display.svg" class="empty-chat-display" alt="My Avatar"/>
+                    <p>Please select a chat to start messaging.</p>
+
+                    <a href="#" class="btn btn-primary lets-chat-mobile-view">Lets Chat</a>
+                </div>
+                <!-- Empty chat screen end -->
+
+                <!-- Content wrapper start -->
+                <div class="chat-content-wrapper d-none">
+
+                    <!-- Active User Chatting Start -->
+                    <div class="active-user-chatting">
+
+                        <div class="active-user-info">
+                            <div class="toggle-sidebar" id="toggle-sidebar">
+                                <span class="toggle-icon"></span>
+                            </div>
+                            <div class="bg-chat-avatar pink">MK</div>
+                            <div class="avatar-info">
+                                <h5>Markus Kyle</h5>
+                                <div class="typing">Typing ...</div>
+                            </div>
+                        </div>
+                        <div class="chat-actions">
+
+                        </div>
+
+                    </div>
+                    <!-- Active User Chatting End -->
+
+                    <!-- Chat Container Start -->
+                    <div class="chat-container">
+                        <div class="chatContainerScroll">
+                            <ul class="chat-box">
+                                <li class='chat-left'>
+                                    <div class='chat-avatar'>
+                                        <h:graphicImage value="/resources/img/user21.png" alt="Quick Chat Admin"/>
+                                        <div class='chat-name'>Kyle</div>
+                                    </div>
+                                    <div class="chat-text-wrapper">
+                                        <div class='chat-text'>
+                                            <p>Hello, good morning.</p>
+                                            <div class='chat-hour read'>08:55 <span>&#10003;</span></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class='chat-right'>
+                                    <div class="chat-text-wrapper">
+                                        <div class='chat-text'>
+                                            <p>Hi Kyle<br/>
+                                                Good morning 😃. How are you?</p>
+                                            <div class='chat-hour read'>08:56 <span>&#10003;</span></div>
+                                        </div>
+                                    </div>
+                                    <div class='chat-avatar'>
+                                        <h:graphicImage value="/resources/img/user24.png" alt="Quick Chat Admin"/>
+
+                                        <div class='chat-name'>Amy</div>
+                                    </div>
+                                </li>
+                                <li class="divider">Feb 18, 2021</li>
+                                <li class='chat-left'>
+                                    <div class='chat-avatar'>
+                                        <h:graphicImage value="/resources/img/user21.png" alt="Quick Chat Admin"/>
+                                        <div class='chat-name'>Kyle</div>
+                                    </div>
+                                    <div class="chat-text-wrapper">
+                                        <div class='chat-text'>
+                                            <p>Are we meeting today 😊😊</p>
+                                            <div class='chat-hour read'>08:57 <span>&#10003;</span></div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Chat Container End -->
+
+                    <!-- Chat form start -->
+                    <div class="chat-form">
+                        <div class="form-group">
+                            <h:inputTextarea class="form-control" placeholder="Type your message here..."  />
+                        </div>
+                        <div class="chat-form-actions">
+                            <a href="#" class="action-icon">
+                                <h:graphicImage value="/resources/img/emoji.svg" alt="Emoji"/>
+
+                                <div class="action-icon-popup">
+                                    <div class="emoji-list">
+                                        <span>&#128522;</span>
+                                        <span>&#128525;</span>
+                                        <span>&#128514;</span>
+                                        <span>&#128557;</span>
+                                        <span>&#128530;</span>
+                                        <span>&#128536;</span>
+                                        <span>&#128553;</span>
+                                        <span>&#128532;</span>
+                                        <span>&#128527;</span>
+                                        <span>&#128513;</span>
+                                        <span>&#128521;</span>
+                                        <span>&#128524;</span>
+                                        <span>&#128563;</span>
+                                        <span>&#128526;</span>
+                                        <span>&#128546;</span>
+                                        <span>&#128564;</span>
+                                        <span>&#128516;</span>
+                                        <span>&#128529;</span>
+                                        <span>&#128533;</span>
+                                        <span>&#128523;</span>
+                                        <span>&#128528;</span>
+                                        <span>&#128554;</span>
+                                        <span>&#128545;</span>
+                                        <span>&#128074;</span>
+                                        <span>&#128515;</span>
+                                        <span>&#128548;</span>
+                                        <span>&#128567;</span>
+                                        <span>&#128538;</span>
+                                        <span>&#128516;</span>
+                                        <span>&#128543;</span>
+                                        <span>&#128537;</span>
+                                        <span>&#128077;</span>
+                                        <span>&#128078;</span>
+                                        <span>&#128076;</span>
+                                        <span>&#128591;</span>
+                                    </div>
+                                </div>
+                            </a>
+                            <h:link class="action-icon" p:data-toggle="modal" p:data-target="#attachFile">
+                                <h:graphicImage value="/resources/img/attach.svg" alt="Attachment"/>
+                                <span class="action-icon-tooltip">Attach</span>
+
+                            </h:link>
+
+                        </div>
+                        <button class="btn btn-primary">
+                            <h:graphicImage value="/resources/img/send1.svg" alt="Send"/>
+
+                        </button>
+                    </div>
+                    <!-- Chat form end -->
+
+                </div>
+                <!-- Content wrapper end -->
+
+
+            </div>
+            <!-- *************
+                ************ Main container end *************
+            ************* -->
+
+        </div>
+        <!-- Page wrapper end -->
+
+        <!-- *************
+            ************ Required JavaScript Files *************
+        ************* -->
+        <!-- Required jQuery first, then Bootstrap Bundle JS -->
+        <h:outputScript name="js/jquery.min.js" target="body"/>
+        <h:outputScript name="js/bootstrap.bundle.min.js" target="body"/>
+
+
+        <!-- *************
+            ************ Vendor Js Files *************
+        ************* -->
+        <!-- Slimscroll JS -->
+        <h:outputScript name="vendor/slimscroll/slimscroll.min.js" target="body"/>
+        <h:outputScript name="vendor/slimscroll/custom-scrollbar.js" target="body"/>
+
+
+        <!-- Main Js Required -->
+        <h:outputScript name="js/main.js" target="body"/>
+
+
+    </h:body>
+
+</f:view>
+</html>
